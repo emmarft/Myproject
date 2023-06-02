@@ -18,6 +18,10 @@ export class ProductsController {
 
   @Delete(':id')
   deleteProduct(@Param('id') productId: string): void {
-    this.productsService.deleteProduct(productId);
+    try {
+        this.productsService.deleteProduct(productId);
+    } catch (e) {
+        console.error(e);
+      }
   }
 }
